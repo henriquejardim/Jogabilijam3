@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using System.Collections;
  
 public class ETFXProjectileScript : MonoBehaviour
@@ -12,16 +12,26 @@ public class ETFXProjectileScript : MonoBehaviour
  
     private bool hasCollided = false;
  
-    void Start()
-    {
-        projectileParticle = Instantiate(projectileParticle, transform.position, transform.rotation) as GameObject;
+  //  void Start()
+  //  {
+  //      projectileParticle = Instantiate(projectileParticle, transform.position, transform.rotation) as GameObject;
+  //      projectileParticle.transform.parent = transform;
+		//if (muzzleParticle){
+  //      muzzleParticle = Instantiate(muzzleParticle, transform.position, transform.rotation) as GameObject;
+  //      Destroy(muzzleParticle, 1.5f); // Lifetime of muzzle effect.
+		//}
+
+  //  }
+
+    void Start() {
+        projectileParticle = Instantiate(projectileParticle, transform.position + new Vector3(0f, 0.01f, 0f), transform.rotation) as GameObject;
         projectileParticle.transform.parent = transform;
-		if (muzzleParticle){
-        muzzleParticle = Instantiate(muzzleParticle, transform.position, transform.rotation) as GameObject;
-        Destroy(muzzleParticle, 1.5f); // Lifetime of muzzle effect.
-		}
+        if (muzzleParticle) {
+            muzzleParticle = Instantiate(muzzleParticle, transform.position + new Vector3(0f, 0.01f, 0f), transform.rotation) as GameObject;
+            Destroy(muzzleParticle, 1.5f); // Lifetime of muzzle effect.
+        }
     }
- 
+
     void OnCollisionEnter(Collision hit)
     {
         if (!hasCollided)

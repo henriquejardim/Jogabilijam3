@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveCharController : MonoBehaviour {
 
-
+    public InputManager input;
     public float speed = 10f;
     public float dashSpeed = 30f;
     public float dashTime = 0.5f;
@@ -16,6 +16,7 @@ public class MoveCharController : MonoBehaviour {
     private float timeForDash = 0f;
 
     private bool isDashing = false;
+    private bool dashPressed;
 
     // Use this for initialization
     void Start () {
@@ -26,12 +27,12 @@ public class MoveCharController : MonoBehaviour {
 	void Update () {
 
         _inputs = Vector3.zero;
-        _inputs.x = Input.GetAxis("Horizontal");
-        _inputs.z = Input.GetAxis("Vertical");
+        _inputs.x = input.LeftStickHorizontal();
+        _inputs.z = input.LeftStickVertical();
 
         _inputs *= speed * Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing) {
+        if ((Input.GetKeyDown(KeyCode.Space) || input.DashButtonDown()) && !isDashing) {
             timeForDash = 0f;
             isDashing = true;
         }
@@ -42,8 +43,11 @@ public class MoveCharController : MonoBehaviour {
 
         if (isDashing) {
             timeForDash += Time.deltaTime;
+            _inputs.Normalize();
             _inputs *= dashSpeed;
         }
+
+        print(isDashing);
 
         _inputs.y = gravity;
 
