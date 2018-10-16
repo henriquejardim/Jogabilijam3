@@ -1,13 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RotateByMouse : MonoBehaviour {
+
+    public InputManager input;
 
      // speed is the rate at which the object will rotate
     public float speed = 10f;
 
     void FixedUpdate() {
+
+        if (input.type == InputManager.InputType.Joystick) return;
+
         // Generate a plane that intersects the transform's position with an upwards normal.
         Plane playerPlane = new Plane(Vector3.up, transform.position);
 

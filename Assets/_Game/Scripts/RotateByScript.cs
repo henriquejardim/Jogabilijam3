@@ -22,10 +22,6 @@ public class RotateByScript : MonoBehaviour {
 
         if (_inputs.magnitude < 0.1) return;
 
-        print(_inputs);
-
-
-
         // Determine the target rotation.  This is the rotation if the transform looks at the target point.
         Quaternion targetRotation = Quaternion.LookRotation((transform.position + _inputs) - transform.position);
 

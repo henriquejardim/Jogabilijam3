@@ -8,6 +8,7 @@ public class MoveCharController : MonoBehaviour {
     public float speed = 10f;
     public float dashSpeed = 30f;
     public float dashTime = 0.5f;
+    public Hit hit;
 
     private CharacterController cc;
     private float gravity = -10f;
@@ -18,21 +19,20 @@ public class MoveCharController : MonoBehaviour {
     private bool isDashing = false;
     private bool dashPressed;
 
-    // Use this for initialization
     void Start () {
         cc = GetComponent<CharacterController>();
-	}
+        hit = GetComponentInChildren<Hit>();
+    }
 	
-	// Update is called once per frame
 	void Update () {
-
+        
         _inputs = Vector3.zero;
         _inputs.x = input.LeftStickHorizontal();
         _inputs.z = input.LeftStickVertical();
 
         _inputs *= speed * Time.deltaTime;
-
-        if ((Input.GetKeyDown(KeyCode.Space) || input.DashButtonDown()) && !isDashing) {
+        
+        if (input.DashButtonDown() && !isDashing) {
             timeForDash = 0f;
             isDashing = true;
         }
@@ -47,11 +47,25 @@ public class MoveCharController : MonoBehaviour {
             _inputs *= dashSpeed;
         }
 
-        print(isDashing);
+        hit.isDashing = isDashing;
 
         _inputs.y = gravity;
 
         cc.Move(_inputs);
 
+        // apply the impact force:
+        if (impact.magnitude > 0.2) cc.Move(impact * Time.deltaTime);
+        // consumes the impact energy each cycle:
+        impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+
+    }
+
+    private float mass = 3.0f;
+    private Vector3 impact = Vector3.zero;
+
+    public void AddImpact(Vector3 dir, float force) {
+        dir.Normalize();
+        if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
+        impact += dir.normalized * force / mass;
     }
 }

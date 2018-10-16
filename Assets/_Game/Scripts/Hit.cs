@@ -6,7 +6,9 @@ using UnityEngine;
 public class Hit : MonoBehaviour {
     public Rigidbody rb;
 
+    public bool isDashing = false;
     public float hitForce = 5;
+    public float hitForceWhenDashing = 25;
 
     // Use this for initialization
     void Start() {
@@ -14,21 +16,9 @@ public class Hit : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision) {
-
-        print("hihi");
-        if (collision.gameObject.CompareTag("Ball"))
-            print("Ball");
-
-        if (collision.collider.CompareTag("Ball"))
-            print("Ball2");
-
-        if (collision.collider.gameObject.CompareTag("Ball"))
-            print("Ball3");
-
-
         var rigid = collision.collider.gameObject.GetComponent<Rigidbody>();
         if (rigid == null) return;
         print("HIT");
-        rigid.AddForce(((-1f) * collision.contacts[0].normal) * hitForce, ForceMode.VelocityChange);
+        rigid.AddForce(((-1f) * collision.contacts[0].normal) * (isDashing ?  hitForceWhenDashing : hitForce), ForceMode.VelocityChange);
     }
 }

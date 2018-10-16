@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114287135028614040}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 143463764571081644}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -335,7 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  isDashing: 0
   hitForce: 25
+  hitForceWhenDashing: 25
 --- !u!114 &114303979032603582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,10 +350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  projectilePreFab: {fileID: 128572, guid: a9927cdb2e175cc4e97a4e06b48da10f, type: 2}
-  fireRate: 0.2
   firePoint: {fileID: 4944376008745556}
-  projectileSpeed: 350
+  weaponData: {fileID: 11400000, guid: 63722e988ecf11e43b3c331bb3290f95, type: 2}
 --- !u!114 &114321289777308756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0ef21546f9bbc49ab2bd6903e3426f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 0}
   speed: 10
 --- !u!114 &114365397263962030
 MonoBehaviour:
@@ -392,6 +393,7 @@ MonoBehaviour:
   speed: 10
   dashSpeed: 1
   dashTime: 0.05
+  hit: {fileID: 0}
 --- !u!136 &136061867378431114
 CapsuleCollider:
   m_ObjectHideFlags: 1
