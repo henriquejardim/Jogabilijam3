@@ -22,7 +22,7 @@ public class RotateByScript : MonoBehaviour {
 
         if (_inputs.magnitude < 0.1) return;
 
-        print(_inputs);
+        //print(_inputs);
 
 
 

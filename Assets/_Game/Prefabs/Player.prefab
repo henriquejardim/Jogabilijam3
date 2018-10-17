@@ -79,9 +79,10 @@ GameObject:
   - component: {fileID: 23137154323460840}
   - component: {fileID: 114757278021257870}
   - component: {fileID: 143463764571081644}
+  - component: {fileID: 114858759952436476}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,7 +311,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &65168418827276076
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -392,6 +393,21 @@ MonoBehaviour:
   speed: 10
   dashSpeed: 1
   dashTime: 0.05
+--- !u!114 &114858759952436476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792721033866958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42b382dff64b23498bc2d3240f2b8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotalLife: 5
+  CurrentLife: 0
+  IsActive: 0
+  hitForce: 5
 --- !u!136 &136061867378431114
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -401,7 +417,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 2c03af9f7aa6b2a4d971def457889fca, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.62
+  m_Radius: 0.64
   m_Height: 2.25
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

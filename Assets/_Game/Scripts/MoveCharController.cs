@@ -47,7 +47,7 @@ public class MoveCharController : MonoBehaviour {
             _inputs *= dashSpeed;
         }
 
-        print(isDashing);
+        //print(isDashing);
 
         _inputs.y = gravity;
 
