@@ -68,4 +68,17 @@ public class MoveCharController : MonoBehaviour {
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
         impact += dir.normalized * force / mass;
     }
+
+    public void BindInputManager(InputManager inputManager) {
+        var rotateMouse = GetComponentInChildren<RotateByMouse>();
+        var weapon = GetComponentInChildren<Weapon>();
+        var rotateJoystick = GetComponentInChildren<RotateByScript>();
+
+        rotateMouse.input = inputManager;
+        weapon.input = inputManager;
+        rotateJoystick.input = inputManager;
+        input = inputManager;
+
+
+    }
 }

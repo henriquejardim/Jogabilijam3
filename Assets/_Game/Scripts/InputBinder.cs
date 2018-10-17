@@ -1,17 +1,46 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class InputBinder : MonoBehaviour {
 
+    public UnityEvent OnBind;
+
+    public InputManager inputManagerPrefab;
+
     public InputManager[] inputs;
+
+    [Range(1, 4)]
+    public int totalControllers = 2;
+        
 
     private string joyTagNumber;
 
     private int i = 0;
-
+    
     private bool keyboardAndMouseBinded = false;
 
+    public void Awake() {
+
+    }
+
+    private void Start() {
+ 
+        for (int index = 0; index < totalControllers; index++) {
+
+            print("TESTE" + i);
+
+            var manager = Instantiate(inputManagerPrefab) as InputManager;
+            manager.PlayerName = "Jogador " + i + 1;
+            DontDestroyOnLoad(manager);
+
+            inputs[index] = manager;
+
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Update() {
-        Bind();
+        //Bind();
     }
 
     public void Bind() {
@@ -33,13 +62,21 @@ public class InputBinder : MonoBehaviour {
             keyboardAndMouseBinded = true;
             inputManager.type = InputManager.InputType.KeyboardMouse;
             i++;
+
+            if (OnBind != null)
+                OnBind.Invoke();
         }
 
         if (!string.IsNullOrEmpty(joyTagNumber)) {
             inputManager.Bind(joyTagNumber);
             i++;
             joyTagNumber = null;
+
+            if (OnBind != null)
+                OnBind.Invoke();
         }
     }
+
+    
 
 }
