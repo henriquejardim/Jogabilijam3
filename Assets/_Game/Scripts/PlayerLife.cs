@@ -65,11 +65,7 @@ public class PlayerLife : MonoBehaviour {
         CurrentLife = TotalLife;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Bullet"))
-        {
-            OnDamage.Invoke(this);
-        }
+    public void ApplyDamage() {
+        OnDamage.Invoke(this);
     }
 }
