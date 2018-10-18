@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,6 +19,8 @@ public class PlayerLife : MonoBehaviour {
 
     public float TotalTimeRespawn = 3;
     public float TimeToRespawn;
+    public float InvulnarableTime = 1f;
+    public bool invulnerable;
 
     Vector3 initialPosition;
     // Use this for initialization
@@ -66,6 +69,13 @@ public class PlayerLife : MonoBehaviour {
         //animação e audio respawn
         player.transform.position = initialPosition;
         CurrentLife = TotalLife;
+        player.invulnerable = true;
+        StartCoroutine(EndInvulnerability(player));
+    }
+
+    private IEnumerator EndInvulnerability(PlayerLife player) {
+        yield return new WaitForSeconds(InvulnarableTime);
+        player.invulnerable = false;
     }
 
     public void ApplyDamage() {

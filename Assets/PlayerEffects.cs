@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,23 +8,46 @@ public class PlayerEffects : MonoBehaviour {
     public PlayerLife life;
 
     public GameObject respawnEffect;
+    public GameObject shield;
 
-	// Use this for initialization
-	void Start () {
+    public MeshRenderer meshRenderer;
+
+    public Material defaultMaterial;
+    public Material hitMaterial;
+
+
+    // Use this for initialization
+    void Start () {
         life = GetComponent<PlayerLife>();
 
         if (life.OnRespawn == null)
             life.OnRespawn = new PlayerLife.PlayerEvent();
 
         life.OnRespawn.AddListener(OnPlayerRespawn);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+        if (life.OnDamage == null)
+            life.OnDamage = new PlayerLife.PlayerEvent();
+
+        life.OnDamage.AddListener(OnDamage);
+    }
+
+    private void OnDamage(PlayerLife arg0) {
+        meshRenderer.material = hitMaterial;
+        StartCoroutine(SetDefaultMaterial());
+    }
+
+    IEnumerator SetDefaultMaterial() {
+        yield return new WaitForSeconds(0.2f);
+        meshRenderer.material = defaultMaterial;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        shield.SetActive(life.invulnerable);
+    }
 
     public void OnPlayerRespawn(PlayerLife player) {
+        meshRenderer.material = defaultMaterial;
         StartCoroutine(Effect());
     }
 

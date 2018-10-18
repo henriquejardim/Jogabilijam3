@@ -381,6 +381,10 @@ MonoBehaviour:
   life: {fileID: 0}
   respawnEffect: {fileID: 1076612561727432, guid: f857872ddac870a4e946b7f0a62a5522,
     type: 2}
+  shield: {fileID: 0}
+  meshRenderer: {fileID: 23850546265639574}
+  defaultMaterial: {fileID: 2100000, guid: b1ff66de751080341807f7f88d8f5211, type: 2}
+  hitMaterial: {fileID: 2100000, guid: 8ca955b8e7ad2a941a52c331c7184ffa, type: 2}
 --- !u!114 &114365397263962030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,8 +411,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 0}
   speed: 10
-  dashSpeed: 1
-  dashTime: 0.05
+  dashSpeed: 1.6
+  dashTime: 0.03
   hit: {fileID: 0}
 --- !u!114 &114871003938717726
 MonoBehaviour:
@@ -440,6 +444,7 @@ MonoBehaviour:
   CurrentLife: 0
   TotalTimeRespawn: 3
   TimeToRespawn: 0
+  invulnerable: 0
 --- !u!136 &136061867378431114
 CapsuleCollider:
   m_ObjectHideFlags: 1
