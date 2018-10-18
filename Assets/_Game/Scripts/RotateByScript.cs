@@ -15,6 +15,8 @@ public class RotateByScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (input.type == InputManager.InputType.KeyboardMouse) return;
+
         _inputs = Vector3.zero;
 
         _inputs.z = input.RightStickVertical();

@@ -19,6 +19,9 @@ public class MoveCharController : MonoBehaviour {
     private bool isDashing = false;
     private bool dashPressed;
 
+    private float mass = 3.0f;
+    private Vector3 impact = Vector3.zero;
+
     void Start () {
         cc = GetComponent<CharacterController>();
         hit = GetComponentInChildren<Hit>();
@@ -60,9 +63,6 @@ public class MoveCharController : MonoBehaviour {
 
     }
 
-    private float mass = 3.0f;
-    private Vector3 impact = Vector3.zero;
-
     public void AddImpact(Vector3 dir, float force) {
         dir.Normalize();
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
@@ -78,7 +78,5 @@ public class MoveCharController : MonoBehaviour {
         weapon.input = inputManager;
         rotateJoystick.input = inputManager;
         input = inputManager;
-
-
     }
 }

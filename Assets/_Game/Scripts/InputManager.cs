@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InputManager : MonoBehaviour {
-   
+
     public enum InputType {
         Joystick,
         KeyboardMouse
@@ -28,12 +26,12 @@ public class InputManager : MonoBehaviour {
         if (type == InputType.KeyboardMouse) {
             return Input.GetKeyDown(KeyCode.Space);
         }
-        
-        var dash = Input.GetAxis(PlayerTagNumber+"Dash");
 
-        if (dashPressed && dash > 0.4) return false;
+        var dash = Input.GetAxis(PlayerTagNumber + "Dash");
 
-        if (dash > 0.4)
+        if (dashPressed && dash > triggerSensitity) return false;
+
+        if (dash > triggerSensitity)
             dashPressed = true;
         else
             dashPressed = false;
@@ -42,7 +40,7 @@ public class InputManager : MonoBehaviour {
     }
 
     public float RightStickVertical() {
-        return Input.GetAxis(PlayerTagNumber+ "RV");
+        return Input.GetAxis(PlayerTagNumber + "RV");
     }
 
     public float RightStickHorizontal() {
@@ -54,7 +52,7 @@ public class InputManager : MonoBehaviour {
     }
 
     public float LeftStickHorizontal() {
-        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LH") : Input.GetAxis("Horizontal"); 
+        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LH") : Input.GetAxis("Horizontal");
     }
 
     public void Bind(string tagJoy) {

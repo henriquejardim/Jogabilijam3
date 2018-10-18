@@ -18,6 +18,10 @@ public class InputBinder : MonoBehaviour {
     private int i = 0;
     
     private bool keyboardAndMouseBinded = false;
+    private bool j1Binded = false;
+    private bool j2Binded = false;
+    private bool j3Binded = false;
+    private bool j4Binded = false;
 
     public void Awake() {
 
@@ -45,18 +49,22 @@ public class InputBinder : MonoBehaviour {
 
     public void Bind() {
 
-        if (i == inputs.Length) return;
+        if (i >= inputs.Length) return;
 
         var inputManager = inputs[i];
 
-        if (Input.GetButtonDown("j1A")) {
+        if (Input.GetButtonDown("j1A") && !j1Binded) {
             joyTagNumber = "j1";
-        } else if (Input.GetButtonDown("j2A")) {
+            j1Binded = true;
+        } else if (Input.GetButtonDown("j2A") && !j2Binded) {
             joyTagNumber = "j2";
-        } else if (Input.GetButtonDown("j3A")) {
+            j2Binded = true;
+        } else if (Input.GetButtonDown("j3A") && !j3Binded) {
             joyTagNumber = "j3";
-        } else if (Input.GetButtonDown("j4A")) {
+            j3Binded = true;
+        } else if (Input.GetButtonDown("j4A") && !j4Binded) {
             joyTagNumber = "j4";
+            j4Binded = true;
         } else if (Input.GetKeyDown(KeyCode.Space) && !keyboardAndMouseBinded) {
             inputManager.binded = true;
             keyboardAndMouseBinded = true;
