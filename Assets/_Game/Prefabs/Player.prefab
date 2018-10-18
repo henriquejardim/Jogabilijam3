@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 114757278021257870}
   - component: {fileID: 143463764571081644}
   - component: {fileID: 114871003938717726}
+  - component: {fileID: 114360757667848656}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -366,6 +367,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 0}
   speed: 10
+--- !u!114 &114360757667848656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792721033866958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4346acf37752e846a531c28cd53d654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: {fileID: 0}
+  respawnEffect: {fileID: 1076612561727432, guid: f857872ddac870a4e946b7f0a62a5522,
+    type: 2}
 --- !u!114 &114365397263962030
 MonoBehaviour:
   m_ObjectHideFlags: 1

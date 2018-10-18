@@ -21,6 +21,9 @@ public class MatchManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(player.TotalTimeRespawn);
         player.gameObject.SetActive(true);
+        var move = player.GetComponent<MoveCharController>();
+        move.ResetMovement();
+
         player.OnRespawn.Invoke(player);
     }
 

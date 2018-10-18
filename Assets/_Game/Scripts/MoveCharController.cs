@@ -79,4 +79,9 @@ public class MoveCharController : MonoBehaviour {
         rotateJoystick.input = inputManager;
         input = inputManager;
     }
+
+    public void ResetMovement() {
+        _inputs = Vector3.zero;
+        impact = Vector3.zero;
+    }
 }
