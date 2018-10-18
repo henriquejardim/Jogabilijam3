@@ -8,6 +8,7 @@ public class PlayerLife : MonoBehaviour {
 
     [System.Serializable]
     public class PlayerEvent : UnityEvent<PlayerLife> { }
+
     public PlayerEvent OnDeath;
     public PlayerEvent OnRespawn;
     public PlayerEvent OnDamage;
@@ -44,6 +45,8 @@ public class PlayerLife : MonoBehaviour {
     void Damage(PlayerLife player)
     {
         CurrentLife--;
+        print("Damage " + CurrentLife);
+
         //animação e audio de dano
         if (CurrentLife <= 0)
         {

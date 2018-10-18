@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114287135028614040}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Player
+  m_TagString: PlayerCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,6 +406,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2bfde7dc79674a4b92b1d7914f93c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerLife+PlayerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnRespawn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerLife+PlayerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PlayerLife+PlayerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   TotalLife: 5
   CurrentLife: 0
   TotalTimeRespawn: 3

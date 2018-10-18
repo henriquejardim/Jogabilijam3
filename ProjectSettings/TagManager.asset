@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Bullet
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,11 @@ public class BulletHit : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
 
-        if (!collision.collider.gameObject.CompareTag("Player")) return;
+       // if (!collision.collider.gameObject.CompareTag("Player")) return;
 
+       
+
+        if (!collision.collider.gameObject.CompareTag("PlayerCollider")) return;
         ApplyImpact(collision);
         ApplyDamage(collision);
 
@@ -21,8 +24,11 @@ public class BulletHit : MonoBehaviour {
 
     private void ApplyDamage(Collision collision) {
         var life = collision.collider.gameObject.GetComponent<PlayerLife>();
+
         if (life == null)
             life = collision.collider.gameObject.GetComponentInParent<PlayerLife>();
+
+        if (life == null) return;
 
         life.ApplyDamage();
 
