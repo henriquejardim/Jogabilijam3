@@ -79,9 +79,8 @@ GameObject:
   - component: {fileID: 23137154323460840}
   - component: {fileID: 114757278021257870}
   - component: {fileID: 143463764571081644}
-  - component: {fileID: 114871003938717726}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerBKP
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,21 +394,6 @@ MonoBehaviour:
   dashSpeed: 1
   dashTime: 0.05
   hit: {fileID: 0}
---- !u!114 &114871003938717726
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1792721033866958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bfde7dc79674a4b92b1d7914f93c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TotalLife: 5
-  CurrentLife: 0
-  TotalTimeRespawn: 3
-  TimeToRespawn: 0
 --- !u!136 &136061867378431114
 CapsuleCollider:
   m_ObjectHideFlags: 1

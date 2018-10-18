@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 114915830196868656}
   - component: {fileID: 114497255429755798}
   m_Layer: 0
-  m_Name: BulletFatGreenOBJ 1
-  m_TagString: Bullet
+  m_Name: BulletFatGreenOBJ 2BKP
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613fd35b685cca640b19164f3e596e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitForce: 50
+  hitForce: 10
 --- !u!114 &114915830196868656
 MonoBehaviour:
   m_ObjectHideFlags: 1
