@@ -38,7 +38,8 @@ public class PlayerEffects : MonoBehaviour {
 
     IEnumerator SetDefaultMaterial() {
         yield return new WaitForSeconds(0.2f);
-        meshRenderer.material = defaultMaterial;
+        if (meshRenderer.gameObject.activeSelf)
+            meshRenderer.material = defaultMaterial;
     }
 
     // Update is called once per frame

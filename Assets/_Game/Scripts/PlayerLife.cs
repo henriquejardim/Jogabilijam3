@@ -22,8 +22,10 @@ public class PlayerLife : MonoBehaviour {
     public float InvulnarableTime = 1f;
     public bool invulnerable;
 
+    public int playerNumber = 1;
+
     Vector3 initialPosition;
-    // Use this for initialization
+
     void Start () {
         initialPosition = transform.position;
         CurrentLife = TotalLife;
@@ -38,11 +40,6 @@ public class PlayerLife : MonoBehaviour {
         if (OnRespawn == null)
             OnRespawn = new PlayerEvent();
         OnRespawn.AddListener(Respawn);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     void Damage(PlayerLife player)
