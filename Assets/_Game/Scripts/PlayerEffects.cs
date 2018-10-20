@@ -41,7 +41,7 @@ public class PlayerEffects : MonoBehaviour {
         PlayEffect(deathEffect);
     }
 
-    private void OnDamage() {
+    private void OnDamage(PlayerLife player) {
         if (!gameObject.activeSelf) return;
         meshRenderer.material = hitMaterial;
         StartCoroutine(SetDefaultMaterial());

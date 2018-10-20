@@ -12,7 +12,7 @@ public class PlayerLife : MonoBehaviour {
 
     public PlayerEvent OnDeath;
     public PlayerEvent OnRespawn;
-    public UnityEvent OnDamage;
+    public PlayerEvent OnDamage;
 
     public int TotalLife = 5;
     public int CurrentLife;
@@ -45,7 +45,7 @@ public class PlayerLife : MonoBehaviour {
         OnDamage.AddListener(Damage);
     }
 
-    void Damage()
+    void Damage(PlayerLife player)
     {
         CurrentLife -= m_currentDamage;
         print("Damage " + playerNumber + " " +  CurrentLife);
@@ -83,6 +83,6 @@ public class PlayerLife : MonoBehaviour {
     public void ApplyDamage(int damage = 1) {
         m_currentDamage = damage;
         print(damage);
-        OnDamage.Invoke();
+        OnDamage.Invoke(this);
     }
 }
