@@ -12,7 +12,7 @@ public class PlayerLife : MonoBehaviour {
 
     public PlayerEvent OnDeath;
     public PlayerEvent OnRespawn;
-    public PlayerEvent OnDamage;
+    public UnityEvent OnDamage;
 
     public int TotalLife = 5;
     public int CurrentLife;
@@ -36,23 +36,19 @@ public class PlayerLife : MonoBehaviour {
             OnDeath = new PlayerEvent();
         OnDeath.AddListener(Death);
 
-        if (OnDamage == null)
-            OnDamage = new PlayerEvent();
-        OnDamage.AddListener(Damage);
-
         if (OnRespawn == null)
             OnRespawn = new PlayerEvent();
         OnRespawn.AddListener(Respawn);
 
-
         playerEffects = GetComponent<PlayerEffects>();
-	}
 
-    void Damage(PlayerLife player)
+        OnDamage.AddListener(Damage);
+    }
+
+    void Damage()
     {
         CurrentLife -= m_currentDamage;
-
-        print("Damage " + CurrentLife);
+        print("Damage " + playerNumber + " " +  CurrentLife);
 
         //animação e audio de dano
         if (CurrentLife <= 0)
@@ -86,6 +82,7 @@ public class PlayerLife : MonoBehaviour {
 
     public void ApplyDamage(int damage = 1) {
         m_currentDamage = damage;
-        OnDamage.Invoke(this);
+        print(damage);
+        OnDamage.Invoke();
     }
 }

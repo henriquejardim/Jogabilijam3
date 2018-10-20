@@ -5,8 +5,12 @@ public class PlayerEffects : MonoBehaviour {
 
     public PlayerLife life;
 
+    [SerializeField]
     public GameObject respawnEffect;
+    [SerializeField]
     public GameObject shield;
+
+    [SerializeField]
     public GameObject deathEffect;
 
     public MeshRenderer meshRenderer;
@@ -24,17 +28,21 @@ public class PlayerEffects : MonoBehaviour {
 
         life.OnRespawn.AddListener(OnPlayerRespawn);
 
-        if (life.OnDamage == null)
-            life.OnDamage = new PlayerLife.PlayerEvent();
-
         life.OnDamage.AddListener(OnDamage);
     }
 
     public void OnDeath() {
+//if (this == null) return;
+        if (deathEffect == null) return;
+        if(life == null) {
+            print("LIFE NULL");
+            return;
+        }
         PlayEffect(deathEffect);
     }
 
-    private void OnDamage(PlayerLife arg0) {
+    private void OnDamage() {
+        if (!gameObject.activeSelf) return;
         meshRenderer.material = hitMaterial;
         StartCoroutine(SetDefaultMaterial());
     }
@@ -63,7 +71,7 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     public void PlayEffect(GameObject effect) {
-        Instantiate(effect, life.transform.position, respawnEffect.transform.rotation);
+        Instantiate(effect, life.transform.position, effect.transform.rotation);
     }
 
 }

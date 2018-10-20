@@ -25,27 +25,25 @@ public class MatchManager : MonoBehaviour {
     private bool m_matchFinished = false;
     private bool m_matchStarted = false;
 
-    void Start () {
+    void Start() {
         if (OnWin == null)
             OnWin = new ScoreEvent();
         OnWin.AddListener(WinPlayer);
 
-        foreach (Ball ball in FindObjectsOfType<Ball>())
-        {
+        foreach (Ball ball in FindObjectsOfType<Ball>()) {
             ball.OnScore.AddListener(Score);
         }
 
-        foreach (PlayerLife player in FindObjectsOfType<PlayerLife>())
-        {
+        foreach (PlayerLife player in FindObjectsOfType<PlayerLife>()) {
+            print(player.playerNumber);
             player.OnDeath.AddListener(DeathPlayer);
             player.ApplyDamage(player.TotalLife);
         }
 
         EndGameManager = FindObjectOfType<EndGameManager>();
-	}
+    }
 
-    private void Score(int numberPlayer)
-    {
+    private void Score(int numberPlayer) {
         if (numberPlayer == 1)
             BallPocketedPlayer1++;
         else
@@ -58,8 +56,7 @@ public class MatchManager : MonoBehaviour {
             OnWin.Invoke(numberPlayer);
     }
 
-    IEnumerator RespawnPlayer(PlayerLife player)
-    {
+    IEnumerator RespawnPlayer(PlayerLife player) {
         yield return new WaitForSeconds(player.TotalTimeRespawn);
         player.gameObject.SetActive(true);
         var move = player.GetComponent<MoveCharController>();
@@ -69,13 +66,11 @@ public class MatchManager : MonoBehaviour {
         m_matchStarted = true;
     }
 
-    void DeathPlayer(PlayerLife player)
-    {
-        StartCoroutine("RespawnPlayer",player);
+    void DeathPlayer(PlayerLife player) {
+        StartCoroutine("RespawnPlayer", player);
     }
 
-    void WinPlayer(int playerNumber)
-    {
+    void WinPlayer(int playerNumber) {
         print("Player " + playerNumber.ToString() + " win.");
         m_matchFinished = true;
         EndGameManager.ShowEndPanel(BallPocketedPlayer1, BallPocketedPlayer2, playerNumber);
@@ -89,6 +84,6 @@ public class MatchManager : MonoBehaviour {
         return m_matchStarted;
     }
 
-    
+
 
 }

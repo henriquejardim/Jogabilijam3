@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void OnPlay() {
-        gameManager.Play();
+        gameManager.HowToPlay();
     }
 
     public void OnCredits() {
@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour {
     public string GetSupportText(int playerNumber) {
         var input = gameManager.JoystickBinded(playerNumber);
         return !input.binded ? "Pressione A/Espaço" :
-            input.type == InputManager.InputType.Joystick ? "Controle" : "Teclado e Mouse";
+            input.type == InputManager.InputType.Joystick ? "Controle " + input.PlayerTagNumber : "Teclado e Mouse";
     }
     
 }
