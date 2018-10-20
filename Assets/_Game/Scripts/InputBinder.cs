@@ -32,7 +32,7 @@ public class InputBinder : MonoBehaviour {
         for (int index = 0; index < totalControllers; index++) {
 
             print("TESTE" + i);
-
+            if (inputManagerPrefab == null) continue;
             var manager = Instantiate(inputManagerPrefab) as InputManager;
             manager.PlayerName = "Jogador " + i + 1;
             DontDestroyOnLoad(manager);
@@ -43,15 +43,13 @@ public class InputBinder : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update() {
-        //Bind();
-    }
-
     public void Bind() {
 
         if (i >= inputs.Length) return;
 
         var inputManager = inputs[i];
+
+        if (inputManager == null) return;
 
         if (Input.GetButtonDown("j1A") && !j1Binded) {
             joyTagNumber = "j1";

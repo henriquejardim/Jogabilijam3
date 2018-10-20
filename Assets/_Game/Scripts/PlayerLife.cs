@@ -12,7 +12,7 @@ public class PlayerLife : MonoBehaviour {
 
     public PlayerEvent OnDeath;
     public PlayerEvent OnRespawn;
-    public PlayerEvent OnDamage;
+    public UnityEvent OnDamage;
 
     public int TotalLife = 5;
     public int CurrentLife;
@@ -26,6 +26,9 @@ public class PlayerLife : MonoBehaviour {
 
     Vector3 initialPosition;
 
+    private int m_currentDamage = 1;
+    private PlayerEffects playerEffects;
+
     void Start () {
         initialPosition = transform.position;
         CurrentLife = TotalLife;
@@ -33,19 +36,19 @@ public class PlayerLife : MonoBehaviour {
             OnDeath = new PlayerEvent();
         OnDeath.AddListener(Death);
 
-        if (OnDamage == null)
-            OnDamage = new PlayerEvent();
-        OnDamage.AddListener(Damage);
-
         if (OnRespawn == null)
             OnRespawn = new PlayerEvent();
         OnRespawn.AddListener(Respawn);
-	}
 
-    void Damage(PlayerLife player)
+        playerEffects = GetComponent<PlayerEffects>();
+
+        OnDamage.AddListener(Damage);
+    }
+
+    void Damage()
     {
-        CurrentLife--;
-        print("Damage " + CurrentLife);
+        CurrentLife -= m_currentDamage;
+        print("Damage " + playerNumber + " " +  CurrentLife);
 
         //animação e audio de dano
         if (CurrentLife <= 0)
@@ -57,6 +60,7 @@ public class PlayerLife : MonoBehaviour {
     void Death(PlayerLife player)
     {
         //animação e audio de morte
+        playerEffects.OnDeath();
         player.gameObject.SetActive(false);
     }
 
@@ -64,9 +68,10 @@ public class PlayerLife : MonoBehaviour {
     {
         //player.gameObject.SetActive(true)
         //animação e audio respawn
-        player.transform.position = initialPosition;
-        CurrentLife = TotalLife;
         player.invulnerable = true;
+        CurrentLife = TotalLife;
+        player.transform.position = initialPosition;
+        
         StartCoroutine(EndInvulnerability(player));
     }
 
@@ -75,7 +80,9 @@ public class PlayerLife : MonoBehaviour {
         player.invulnerable = false;
     }
 
-    public void ApplyDamage() {
-        OnDamage.Invoke(this);
+    public void ApplyDamage(int damage = 1) {
+        m_currentDamage = damage;
+        print(damage);
+        OnDamage.Invoke();
     }
 }

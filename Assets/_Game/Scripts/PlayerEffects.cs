@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerEffects : MonoBehaviour {
 
     public PlayerLife life;
 
+    [SerializeField]
     public GameObject respawnEffect;
+    [SerializeField]
     public GameObject shield;
+
+    [SerializeField]
+    public GameObject deathEffect;
 
     public MeshRenderer meshRenderer;
 
@@ -17,7 +20,7 @@ public class PlayerEffects : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         life = GetComponent<PlayerLife>();
 
         if (life.OnRespawn == null)
@@ -25,13 +28,21 @@ public class PlayerEffects : MonoBehaviour {
 
         life.OnRespawn.AddListener(OnPlayerRespawn);
 
-        if (life.OnDamage == null)
-            life.OnDamage = new PlayerLife.PlayerEvent();
-
         life.OnDamage.AddListener(OnDamage);
     }
 
-    private void OnDamage(PlayerLife arg0) {
+    public void OnDeath() {
+//if (this == null) return;
+        if (deathEffect == null) return;
+        if(life == null) {
+            print("LIFE NULL");
+            return;
+        }
+        PlayEffect(deathEffect);
+    }
+
+    private void OnDamage() {
+        if (!gameObject.activeSelf) return;
         meshRenderer.material = hitMaterial;
         StartCoroutine(SetDefaultMaterial());
     }
@@ -43,19 +54,24 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        shield.SetActive(life.invulnerable);
+    void Update() {
+        if (gameObject.activeSelf)
+            shield.SetActive(life.invulnerable);
     }
 
     public void OnPlayerRespawn(PlayerLife player) {
         meshRenderer.material = defaultMaterial;
-        StartCoroutine(Effect());
+        StartCoroutine(Effect(respawnEffect));
     }
 
-     IEnumerator Effect() {
+    IEnumerator Effect(GameObject effect) {
         yield return new WaitForSeconds(0.1f);
         print(life.gameObject.transform.position);
-        Instantiate(respawnEffect, life.transform.position, respawnEffect.transform.rotation);
+        PlayEffect(effect);
+    }
+
+    public void PlayEffect(GameObject effect) {
+        Instantiate(effect, life.transform.position, effect.transform.rotation);
     }
 
 }

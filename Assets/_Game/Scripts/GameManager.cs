@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
     public enum GameState {
         Start,
         Menu,
+        Credits,
+        HowToPlay,
         JoystickBind,
         Gaming,
         End
@@ -34,8 +36,21 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    internal void ExitGame() {
+        Application.Quit();
+    }
+
+    internal void Credits() {
+        SceneManager.LoadScene(3);
+    }
+
     internal void Play() {
         SceneManager.LoadScene(2);
+        ChangeState(GameState.Gaming);
+    }
+
+    internal void HowToPlay() {
+        SceneManager.LoadScene(4);
         ChangeState(GameState.Gaming);
     }
 
@@ -48,16 +63,28 @@ public class GameManager : MonoBehaviour {
             case GameState.Menu:
             break;
             case GameState.JoystickBind:
-
             break;
             case GameState.Gaming:
             binder.Bind();
+            break;
+            case GameState.HowToPlay:
+            if (Input.GetButtonDown("Submit") || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Cancel"))
+                Play();
+            break;
+            case GameState.Credits:
+            if (Input.GetButtonDown("Submit") || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Cancel"))
+                MenuScreen();
             break;
             case GameState.End:
             break;
             default:
             break;
         }
+    }
+
+    internal void MenuScreen() {
+        SceneManager.LoadScene(1);
+        ChangeState(GameState.Menu);
     }
 
     public void OnBind() {
@@ -86,7 +113,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void JoystickBind() {
-
+    public InputManager JoystickBinded(int playerNumber) {
+        return binder.inputs[playerNumber - 1];
     }
 }

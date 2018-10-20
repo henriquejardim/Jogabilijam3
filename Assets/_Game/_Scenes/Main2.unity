@@ -926,8 +926,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637fd7165433bea41a875ecb58a6ead8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   PlayerName: Player2
   PlayerTagNumber: Player2
+  binded: 0
   triggerSensitity: 0.4
 --- !u!4 &451738118
 Transform:
@@ -3740,8 +3742,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637fd7165433bea41a875ecb58a6ead8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   PlayerName: Player1
   PlayerTagNumber: Player1
+  binded: 0
   triggerSensitity: 0.4
 --- !u!4 &1379436555
 Transform:

@@ -18,10 +18,12 @@ public class InputManager : MonoBehaviour {
     private bool dashPressed;
 
     public bool FireButton() {
+        if (!binded) return false;
         return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "Fire") > triggerSensitity : Input.GetButton("Fire1");
     }
 
     public bool DashButtonDown() {
+        if (!binded) return false;
 
         if (type == InputType.KeyboardMouse) {
             return Input.GetKeyDown(KeyCode.Space);
@@ -40,19 +42,27 @@ public class InputManager : MonoBehaviour {
     }
 
     public float RightStickVertical() {
+        if (!binded) return 0;
+
         return Input.GetAxis(PlayerTagNumber + "RV");
     }
 
     public float RightStickHorizontal() {
+        if (!binded) return 0;
+
         return Input.GetAxis(PlayerTagNumber + "RH");
     }
 
     public float LeftStickVertical() {
-        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LV") : Input.GetAxis("Vertical");
+        if (!binded) return 0;
+
+        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LV") : Input.GetAxis("Vertical1");
     }
 
     public float LeftStickHorizontal() {
-        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LH") : Input.GetAxis("Horizontal");
+        if (!binded) return 0;
+
+        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LH") : Input.GetAxis("Horizontal1");
     }
 
     public void Bind(string tagJoy) {
