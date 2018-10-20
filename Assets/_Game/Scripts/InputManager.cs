@@ -48,11 +48,11 @@ public class InputManager : MonoBehaviour {
     }
 
     public float LeftStickVertical() {
-        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LV") : Input.GetAxis("Vertical");
+        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LV") : Input.GetAxis("Vertical1");
     }
 
     public float LeftStickHorizontal() {
-        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LH") : Input.GetAxis("Horizontal");
+        return type == InputType.Joystick ? Input.GetAxis(PlayerTagNumber + "LH") : Input.GetAxis("Horizontal1");
     }
 
     public void Bind(string tagJoy) {

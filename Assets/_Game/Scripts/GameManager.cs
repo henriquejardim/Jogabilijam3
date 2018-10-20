@@ -34,6 +34,14 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    internal void ExitGame() {
+        Application.Quit();
+    }
+
+    internal void Credits() {
+        SceneManager.LoadScene(3);
+    }
+
     internal void Play() {
         SceneManager.LoadScene(2);
         ChangeState(GameState.Gaming);
@@ -58,6 +66,11 @@ public class GameManager : MonoBehaviour {
             default:
             break;
         }
+    }
+
+    internal void MenuScreen() {
+        SceneManager.LoadScene(1);
+        ChangeState(GameState.Menu);
     }
 
     public void OnBind() {
@@ -86,7 +99,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void JoystickBind() {
-
+    public InputManager JoystickBinded(int playerNumber) {
+        return binder.inputs[playerNumber - 1];
     }
 }

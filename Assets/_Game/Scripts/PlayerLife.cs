@@ -26,6 +26,9 @@ public class PlayerLife : MonoBehaviour {
 
     Vector3 initialPosition;
 
+    private int m_currentDamage = 1;
+    private PlayerEffects playerEffects;
+
     void Start () {
         initialPosition = transform.position;
         CurrentLife = TotalLife;
@@ -40,11 +43,15 @@ public class PlayerLife : MonoBehaviour {
         if (OnRespawn == null)
             OnRespawn = new PlayerEvent();
         OnRespawn.AddListener(Respawn);
+
+
+        playerEffects = GetComponent<PlayerEffects>();
 	}
 
     void Damage(PlayerLife player)
     {
-        CurrentLife--;
+        CurrentLife -= m_currentDamage;
+
         print("Damage " + CurrentLife);
 
         //animação e audio de dano
@@ -57,6 +64,7 @@ public class PlayerLife : MonoBehaviour {
     void Death(PlayerLife player)
     {
         //animação e audio de morte
+        playerEffects.OnDeath();
         player.gameObject.SetActive(false);
     }
 
@@ -64,9 +72,10 @@ public class PlayerLife : MonoBehaviour {
     {
         //player.gameObject.SetActive(true)
         //animação e audio respawn
-        player.transform.position = initialPosition;
-        CurrentLife = TotalLife;
         player.invulnerable = true;
+        CurrentLife = TotalLife;
+        player.transform.position = initialPosition;
+        
         StartCoroutine(EndInvulnerability(player));
     }
 
@@ -75,7 +84,8 @@ public class PlayerLife : MonoBehaviour {
         player.invulnerable = false;
     }
 
-    public void ApplyDamage() {
+    public void ApplyDamage(int damage = 1) {
+        m_currentDamage = damage;
         OnDamage.Invoke(this);
     }
 }

@@ -2,17 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MatchManager : MonoBehaviour {
 
-    // Use this for initialization
-    int BallPocketedPlayer1;
-    int BallPocketedPlayer2;
+    [HideInInspector]
+    public int BallPocketedPlayer1;
+
+    [HideInInspector]
+    public int BallPocketedPlayer2;
 
     public int TotalBallsToPlayer = 4;
 
+    [HideInInspector]
+    public UnityEvent OnScore;
+
+    [HideInInspector]
     public ScoreEvent OnWin;
-	void Start () {
+
+    public EndGameManager EndGameManager;
+
+    private bool m_matchFinished = false;
+    private bool m_matchStarted = false;
+
+    void Start () {
         if (OnWin == null)
             OnWin = new ScoreEvent();
         OnWin.AddListener(WinPlayer);
@@ -25,7 +38,10 @@ public class MatchManager : MonoBehaviour {
         foreach (PlayerLife player in FindObjectsOfType<PlayerLife>())
         {
             player.OnDeath.AddListener(DeathPlayer);
-        }       		
+            player.ApplyDamage(player.TotalLife);
+        }
+
+        EndGameManager = FindObjectOfType<EndGameManager>();
 	}
 
     private void Score(int numberPlayer)
@@ -34,6 +50,9 @@ public class MatchManager : MonoBehaviour {
             BallPocketedPlayer1++;
         else
             BallPocketedPlayer2++;
+
+        if (OnScore != null)
+            OnScore.Invoke();
 
         if (BallPocketedPlayer1 >= TotalBallsToPlayer || BallPocketedPlayer2 >= TotalBallsToPlayer)
             OnWin.Invoke(numberPlayer);
@@ -47,6 +66,7 @@ public class MatchManager : MonoBehaviour {
         move.ResetMovement();
 
         player.OnRespawn.Invoke(player);
+        m_matchStarted = true;
     }
 
     void DeathPlayer(PlayerLife player)
@@ -54,9 +74,21 @@ public class MatchManager : MonoBehaviour {
         StartCoroutine("RespawnPlayer",player);
     }
 
-    void WinPlayer(int numberPlayer)
+    void WinPlayer(int playerNumber)
     {
-        print("Player " + numberPlayer.ToString() + " win.");
+        print("Player " + playerNumber.ToString() + " win.");
+        m_matchFinished = true;
+        EndGameManager.ShowEndPanel(BallPocketedPlayer1, BallPocketedPlayer2, playerNumber);
     }
+
+    public bool MatchFinished() {
+        return m_matchFinished;
+    }
+
+    public bool MatchStarted() {
+        return m_matchStarted;
+    }
+
+    
 
 }

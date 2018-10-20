@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerEffects : MonoBehaviour {
@@ -9,6 +7,7 @@ public class PlayerEffects : MonoBehaviour {
 
     public GameObject respawnEffect;
     public GameObject shield;
+    public GameObject deathEffect;
 
     public MeshRenderer meshRenderer;
 
@@ -17,7 +16,7 @@ public class PlayerEffects : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         life = GetComponent<PlayerLife>();
 
         if (life.OnRespawn == null)
@@ -29,6 +28,10 @@ public class PlayerEffects : MonoBehaviour {
             life.OnDamage = new PlayerLife.PlayerEvent();
 
         life.OnDamage.AddListener(OnDamage);
+    }
+
+    public void OnDeath() {
+        PlayEffect(deathEffect);
     }
 
     private void OnDamage(PlayerLife arg0) {
@@ -43,19 +46,24 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        shield.SetActive(life.invulnerable);
+    void Update() {
+        if (gameObject.activeSelf)
+            shield.SetActive(life.invulnerable);
     }
 
     public void OnPlayerRespawn(PlayerLife player) {
         meshRenderer.material = defaultMaterial;
-        StartCoroutine(Effect());
+        StartCoroutine(Effect(respawnEffect));
     }
 
-     IEnumerator Effect() {
+    IEnumerator Effect(GameObject effect) {
         yield return new WaitForSeconds(0.1f);
         print(life.gameObject.transform.position);
-        Instantiate(respawnEffect, life.transform.position, respawnEffect.transform.rotation);
+        PlayEffect(effect);
+    }
+
+    public void PlayEffect(GameObject effect) {
+        Instantiate(effect, life.transform.position, respawnEffect.transform.rotation);
     }
 
 }
