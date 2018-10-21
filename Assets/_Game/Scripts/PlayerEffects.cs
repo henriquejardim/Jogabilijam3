@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerEffects : MonoBehaviour {
 
     public PlayerLife life;
+    public AudioSource dash;
 
     [SerializeField]
     public GameObject respawnEffect;
@@ -21,6 +22,8 @@ public class PlayerEffects : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        dash = GetComponent<AudioSource>();
+
         life = GetComponent<PlayerLife>();
 
         if (life.OnRespawn == null)
@@ -32,7 +35,6 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     public void OnDeath() {
-//if (this == null) return;
         if (deathEffect == null) return;
         if(life == null) {
             print("LIFE NULL");
@@ -41,7 +43,7 @@ public class PlayerEffects : MonoBehaviour {
         PlayEffect(deathEffect);
     }
 
-    private void OnDamage() {
+    private void OnDamage(PlayerLife life) {
         if (!gameObject.activeSelf) return;
         meshRenderer.material = hitMaterial;
         StartCoroutine(SetDefaultMaterial());
@@ -72,6 +74,10 @@ public class PlayerEffects : MonoBehaviour {
 
     public void PlayEffect(GameObject effect) {
         Instantiate(effect, life.transform.position, effect.transform.rotation);
+    }
+
+    public void PlayDashAudio() {
+        dash.Play();
     }
 
 }

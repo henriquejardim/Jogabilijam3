@@ -9,7 +9,7 @@ public class RotateByMouse : MonoBehaviour {
 
     void FixedUpdate() {
 
-        if (input.type == InputManager.InputType.Joystick) return;
+        if (input.type != InputManager.InputType.KeyboardMouse) return;
 
         // Generate a plane that intersects the transform's position with an upwards normal.
         Plane playerPlane = new Plane(Vector3.up, transform.position);

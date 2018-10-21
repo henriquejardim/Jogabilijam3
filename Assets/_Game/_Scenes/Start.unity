@@ -320,6 +320,12 @@ Prefab:
       value: 
       objectReference: {fileID: 114615458289576174, guid: de35d174ec37db74ca72e40c355ca655,
         type: 2}
+    - target: {fileID: 114803785198755216, guid: e57ce2f53f576604ea6a0e72014787c4,
+        type: 2}
+      propertyPath: xinputManagerPrefab
+      value: 
+      objectReference: {fileID: 114291197352203452, guid: 48cbc50665c73dc44893fa962b1e9451,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e57ce2f53f576604ea6a0e72014787c4, type: 2}
   m_IsPrefabAsset: 0
@@ -597,6 +603,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a35c698362100504e9272d7b16e35002, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1692685475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1619402986471342, guid: a35c698362100504e9272d7b16e35002,
+    type: 2}
+  m_PrefabInternal: {fileID: 1692685474}
+--- !u!114 &1692685476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1692685475}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e143cf088d969334389b47fee45014c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1828810327
 GameObject:
   m_ObjectHideFlags: 0

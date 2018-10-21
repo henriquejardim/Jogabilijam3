@@ -704,6 +704,7 @@ MonoBehaviour:
   controllerText1: {fileID: 1895446778}
   controllerText2: {fileID: 16309970}
   play: {fileID: 994467092}
+  eventSystem: {fileID: 1205741525}
 --- !u!1 &500406832
 GameObject:
   m_ObjectHideFlags: 0

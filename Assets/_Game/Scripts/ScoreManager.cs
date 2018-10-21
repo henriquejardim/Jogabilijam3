@@ -12,9 +12,13 @@ public class ScoreManager : MonoBehaviour {
     public Text scorePlayer1;
     public Text scorePlayer2;
     public GameObject scorePanel;
-     
+    public GameObject scorePanel2;
+
     void Start () {
-        match.OnWin.AddListener((i) => scorePanel.SetActive(false));
+        match.OnWin.AddListener((i) => {
+            scorePanel.SetActive(false);
+        });
+
         match.OnScore.AddListener(() => {
             scorePlayer1.text = match.BallPocketedPlayer1.ToString();
             scorePlayer2.text = match.BallPocketedPlayer2.ToString();

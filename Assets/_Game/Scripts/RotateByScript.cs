@@ -21,7 +21,7 @@ public class RotateByScript : MonoBehaviour {
 
         _inputs.z = input.RightStickVertical();
         _inputs.x = input.RightStickHorizontal();
-
+        print(_inputs);   
         if (_inputs.magnitude < 0.1) return;
 
         // Determine the target rotation.  This is the rotation if the transform looks at the target point.

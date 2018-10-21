@@ -22,9 +22,12 @@ public class MoveCharController : MonoBehaviour {
     private float mass = 3.0f;
     private Vector3 impact = Vector3.zero;
 
+    private PlayerEffects effects;
+
     void Start () {
         cc = GetComponent<CharacterController>();
         hit = GetComponentInChildren<Hit>();
+        effects = GetComponent<PlayerEffects>();
     }
 	
 	void Update () {
@@ -36,6 +39,7 @@ public class MoveCharController : MonoBehaviour {
         _inputs *= speed * Time.deltaTime;
         
         if (input.DashButtonDown() && !isDashing) {
+            effects.PlayDashAudio();
             timeForDash = 0f;
             isDashing = true;
         }

@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        Application.targetFrameRate = 60;
+
         if (binder == null)
             binder = FindObjectOfType<InputBinder>();
 
