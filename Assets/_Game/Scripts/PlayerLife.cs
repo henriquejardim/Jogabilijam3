@@ -47,8 +47,8 @@ public class PlayerLife : MonoBehaviour {
         OnDamage.AddListener(Damage);
     }
 
-    void Damage(PlayerLife life)
-    {
+    void Damage(PlayerLife life) {
+
         CurrentLife -= m_currentDamage;
         print("Damage " + playerNumber + " " +  CurrentLife);
 
