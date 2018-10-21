@@ -2719,6 +2719,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 112812, guid: 347c3709b22d3bb4b800383efe154521, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 121446, guid: 347c3709b22d3bb4b800383efe154521, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100188, guid: 347c3709b22d3bb4b800383efe154521, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 347c3709b22d3bb4b800383efe154521, type: 2}
   m_IsPrefabAsset: 0
@@ -5205,6 +5217,40 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 9c62c93deb5774144a661cff013c5171, type: 3}
+    - target: {fileID: 1998919118383380, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766531772339436, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754969866691392, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698442975286030, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563766669672710, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894228354022036, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240669646149634, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114720787747961840, guid: 805132ce36d08cb4282d7e8edd4a165a,
+        type: 2}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: 405dc5452f37bb947bdd90c356f5dee0,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
   m_IsPrefabAsset: 0
@@ -9028,6 +9074,18 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 171482, guid: 5bc71fb5e90182941b584e88079e3ec5, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 167996, guid: 5bc71fb5e90182941b584e88079e3ec5, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 182786, guid: 5bc71fb5e90182941b584e88079e3ec5, type: 2}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc71fb5e90182941b584e88079e3ec5, type: 2}
   m_IsPrefabAsset: 0
@@ -9103,6 +9161,34 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 9c62c93deb5774144a661cff013c5171, type: 3}
+    - target: {fileID: 1131249161187780, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091632328301032, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1029474409277808, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922724331563910, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253730635077794, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526285747527896, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905033883177918, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
   m_IsPrefabAsset: 0
