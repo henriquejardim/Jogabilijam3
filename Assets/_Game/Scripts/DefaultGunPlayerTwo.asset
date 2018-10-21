@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: DefaultGunPlayerTwo
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 128572, guid: 7f283227820d901458ee6e7538f7ea7f, type: 2}
-  fireRate: 0.28
-  projectileForce: 350
+  fireRate: 0.35
+  projectileForce: 750

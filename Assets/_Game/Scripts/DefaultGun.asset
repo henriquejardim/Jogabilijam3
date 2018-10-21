@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: DefaultGun
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 128572, guid: a9927cdb2e175cc4e97a4e06b48da10f, type: 2}
-  fireRate: 0.28
-  projectileForce: 350
+  fireRate: 0.35
+  projectileForce: 750
