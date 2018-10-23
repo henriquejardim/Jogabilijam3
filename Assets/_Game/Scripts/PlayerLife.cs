@@ -64,6 +64,7 @@ public class PlayerLife : MonoBehaviour {
         //animação e audio de morte
         playerEffects.OnDeath();
         player.gameObject.SetActive(false);
+        player.transform.position = initialPosition;
     }
 
     void Respawn(PlayerLife player)
