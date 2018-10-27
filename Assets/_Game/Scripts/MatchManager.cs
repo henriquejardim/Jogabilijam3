@@ -22,6 +22,8 @@ public class MatchManager : MonoBehaviour {
 
     public EndGameManager EndGameManager;
 
+    public AudioClip matchClip;
+
     private bool m_matchFinished = false;
     private bool m_matchStarted = false;
 
@@ -41,6 +43,8 @@ public class MatchManager : MonoBehaviour {
         }
 
         EndGameManager = FindObjectOfType<EndGameManager>();
+
+        AudioManager.instance.PlayAudioClip(matchClip);
     }
 
     private void Score(int numberPlayer) {
