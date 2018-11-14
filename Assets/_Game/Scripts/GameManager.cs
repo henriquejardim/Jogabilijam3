@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
     public MoveCharController player1;
     public MoveCharController player2;
 
+    public PlayerHudInformation player1Information;
+    public PlayerHudInformation player2Information;
+
     public enum GameState {
         Start,
         Menu,

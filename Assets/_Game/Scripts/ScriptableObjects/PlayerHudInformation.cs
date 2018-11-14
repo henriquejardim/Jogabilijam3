@@ -6,10 +6,10 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName ="New PlayerInfo", menuName ="PalyerInfo")]
 public class PlayerHudInformation : ScriptableObject {
 
-    public int PlayerNumber;
     public Sprite BallInactive;
     public Sprite BallActive;
-    public Color PlayerColor;
-    public Color LifeCellColor;
-
+    public Color PlayerHudColor;
+    public Color RespawnCounterColor;
+    public Material ColorMaterial;
+    public Material HitEfectMaterial;
 }
