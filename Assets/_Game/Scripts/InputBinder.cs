@@ -113,7 +113,7 @@ public class InputBinder : MonoBehaviour {
             DontDestroyOnLoad(inputManager);
             inputs[i] = inputManager;
 
-            inputManager.PlayerName = "Jogardor " + (i + 1);
+            inputManager.PlayerName = "Jogador " + (i + 1);
             inputManager.binded = true;
             keyboardAndMouseBinded = true;
             inputManager.type = InputManager.InputType.KeyboardMouse;

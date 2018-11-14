@@ -599,8 +599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 0}
   speed: 10
-  dashSpeed: 1.6
-  dashTime: 0.03
+  dashSpeed: 1.3
+  dashTime: 0.05
   hit: {fileID: 0}
 --- !u!114 &114182526754421906
 MonoBehaviour:

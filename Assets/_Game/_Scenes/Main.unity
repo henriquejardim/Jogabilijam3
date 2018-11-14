@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003995703, g: 0.0002179262, b: 0.000000051515347,
+  m_IndirectSpecularColor: {r: 0.0039957035, g: 0.00021792635, b: 0.000000051515347,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -329,7 +329,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 53754183}
   m_LocalRotation: {x: -0.50000006, y: 0.49999997, z: 0.50000006, w: 0.49999997}
-  m_LocalPosition: {x: 27.1, y: -3.8, z: -13.84}
+  m_LocalPosition: {x: 27.1, y: -3, z: -13.84}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1431778923}
@@ -341,6 +341,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &123150876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1324262114680230, guid: a90964fd7f4f81a45bf77e0541683f16,
+    type: 2}
+  m_PrefabInternal: {fileID: 2108764022}
+--- !u!114 &123150878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123150876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: 77da72275ee47ff4bb144952de6edd9d, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: d4915bb9c1967e34a9a26b6bf119f70f, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &146826138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,6 +1608,7 @@ GameObject:
   - component: {fileID: 464433605}
   - component: {fileID: 464433604}
   - component: {fileID: 464433609}
+  - component: {fileID: 464433610}
   m_Layer: 0
   m_Name: Ball (3)
   m_TagString: Ball
@@ -1694,6 +1714,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 2
+--- !u!114 &464433610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 464433603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: e42acb0ceaec583439c624d09de74992, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: d1a797bcab532264389ea37292fd13e6, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &484210868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,6 +2740,7 @@ GameObject:
   - component: {fileID: 687094333}
   - component: {fileID: 687094332}
   - component: {fileID: 687094337}
+  - component: {fileID: 687094338}
   m_Layer: 0
   m_Name: Ball (6)
   m_TagString: Ball
@@ -2811,6 +2846,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 1
+--- !u!114 &687094338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687094331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: b1ff66de751080341807f7f88d8f5211, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: 4af6ab0438b9fc745a3f4871beea2cf7, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &688179050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +2948,7 @@ GameObject:
   - component: {fileID: 706761923}
   - component: {fileID: 706761922}
   - component: {fileID: 706761927}
+  - component: {fileID: 706761928}
   m_Layer: 0
   m_Name: Ball (4)
   m_TagString: Ball
@@ -3004,6 +3054,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 1
+--- !u!114 &706761928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 706761921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: b1ff66de751080341807f7f88d8f5211, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: 4af6ab0438b9fc745a3f4871beea2cf7, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &746334007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,6 +3081,7 @@ GameObject:
   - component: {fileID: 746334009}
   - component: {fileID: 746334008}
   - component: {fileID: 746334013}
+  - component: {fileID: 746334014}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -3122,6 +3187,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 2
+--- !u!114 &746334014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 746334007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: e42acb0ceaec583439c624d09de74992, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: d1a797bcab532264389ea37292fd13e6, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &749649478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,6 +4169,7 @@ GameObject:
   - component: {fileID: 939588829}
   - component: {fileID: 939588828}
   - component: {fileID: 939588833}
+  - component: {fileID: 939588834}
   m_Layer: 0
   m_Name: Ball (2)
   m_TagString: Ball
@@ -4195,6 +4275,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 2
+--- !u!114 &939588834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 939588827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: e42acb0ceaec583439c624d09de74992, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: d1a797bcab532264389ea37292fd13e6, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &969960691
 GameObject:
   m_ObjectHideFlags: 0
@@ -4411,6 +4505,7 @@ GameObject:
   - component: {fileID: 1008553859}
   - component: {fileID: 1008553858}
   - component: {fileID: 1008553863}
+  - component: {fileID: 1008553864}
   m_Layer: 0
   m_Name: Ball (1)
   m_TagString: Ball
@@ -4516,6 +4611,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 2
+--- !u!114 &1008553864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1008553857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: e42acb0ceaec583439c624d09de74992, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: d1a797bcab532264389ea37292fd13e6, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1050723372
 GameObject:
   m_ObjectHideFlags: 0
@@ -4946,12 +5055,12 @@ Prefab:
     - target: {fileID: 114118633444976028, guid: 805132ce36d08cb4282d7e8edd4a165a,
         type: 2}
       propertyPath: dashSpeed
-      value: 1.05
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 114118633444976028, guid: 805132ce36d08cb4282d7e8edd4a165a,
         type: 2}
       propertyPath: dashTime
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 114118633444976028, guid: 805132ce36d08cb4282d7e8edd4a165a,
         type: 2}
@@ -6559,6 +6668,7 @@ GameObject:
   - component: {fileID: 1591315649}
   - component: {fileID: 1591315648}
   - component: {fileID: 1591315653}
+  - component: {fileID: 1591315654}
   m_Layer: 0
   m_Name: Ball (5)
   m_TagString: Ball
@@ -6664,6 +6774,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 1
+--- !u!114 &1591315654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1591315647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: b1ff66de751080341807f7f88d8f5211, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: 4af6ab0438b9fc745a3f4871beea2cf7, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1597591494
 GameObject:
   m_ObjectHideFlags: 0
@@ -7157,6 +7281,25 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1701070677}
   m_CullTransparentMesh: 0
+--- !u!1 &1702144934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1461740558840296, guid: a90964fd7f4f81a45bf77e0541683f16,
+    type: 2}
+  m_PrefabInternal: {fileID: 2108764022}
+--- !u!114 &1702144936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702144934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: 77da72275ee47ff4bb144952de6edd9d, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: d4915bb9c1967e34a9a26b6bf119f70f, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!114 &1704154362 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114318684711929788, guid: a35c698362100504e9272d7b16e35002,
@@ -7174,6 +7317,7 @@ GameObject:
   - component: {fileID: 1719187770}
   - component: {fileID: 1719187769}
   - component: {fileID: 1719187768}
+  - component: {fileID: 1719187772}
   m_Layer: 9
   m_Name: Floor
   m_TagString: Untagged
@@ -7250,6 +7394,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1719187772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719187767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5c9eed350477b458e45500f6b96008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737539972
 GameObject:
   m_ObjectHideFlags: 0
@@ -7424,6 +7579,7 @@ GameObject:
   - component: {fileID: 1789762645}
   - component: {fileID: 1789762644}
   - component: {fileID: 1789762649}
+  - component: {fileID: 1789762650}
   m_Layer: 0
   m_Name: Ball (7)
   m_TagString: Ball
@@ -7529,6 +7685,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ScoreEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   PlayerNumber: 1
+--- !u!114 &1789762650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1789762643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59453d11cdb2a4cb7dd9063c0e4e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: b1ff66de751080341807f7f88d8f5211, type: 2}
+  onCollisionMaterial: {fileID: 2100000, guid: 4af6ab0438b9fc745a3f4871beea2cf7, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1816336191
 GameObject:
   m_ObjectHideFlags: 0
@@ -8210,6 +8380,11 @@ Prefab:
       propertyPath: TotalBallsToPlayer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114932844882882792, guid: 58c7dc3ea0c246e4e84ad6c45c447725,
+        type: 2}
+      propertyPath: matchClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bcb089c5000f6c94b88272498efc1774, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58c7dc3ea0c246e4e84ad6c45c447725, type: 2}
   m_IsPrefabAsset: 0
@@ -8487,12 +8662,12 @@ Prefab:
     - target: {fileID: 114163881255828488, guid: 05347f535fb367342b1e01af77010ff3,
         type: 2}
       propertyPath: dashSpeed
-      value: 1.05
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 114163881255828488, guid: 05347f535fb367342b1e01af77010ff3,
         type: 2}
       propertyPath: dashTime
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 114163881255828488, guid: 05347f535fb367342b1e01af77010ff3,
         type: 2}
@@ -8598,6 +8773,51 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346273334592008, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346273334592008, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65894775277062398, guid: a90964fd7f4f81a45bf77e0541683f16,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887296053373206, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444182872421050, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733155283282436, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839617373319776, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836280443342118, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628696759819508, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174811327230538, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896327085023912, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
