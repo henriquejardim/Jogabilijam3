@@ -16,6 +16,7 @@ public class SelectInput : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
         if (!playerIndexSet || !prevState.IsConnected) {
             for (int i = 0; i < 4; ++i) {
                 PlayerIndex testPlayerIndex = (PlayerIndex)i;
@@ -31,7 +32,15 @@ public class SelectInput : MonoBehaviour {
         prevState = state;
         state = GamePad.GetState(playerIndex);
 
-        if ((Input.GetAxis("Vertical") != 0f || prevState.ThumbSticks.Left.Y != 0f)  && !buttonSelected) {
+        var vertical = prevState.ThumbSticks.Left.Y;
+    
+    #endif
+
+     #if UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+         var vertical = Input.GetAxis("Vertical");
+     #endif
+
+        if (vertical != 0 && !buttonSelected) {
             eventSystem.SetSelectedGameObject(selected);
             buttonSelected = true;
         }
