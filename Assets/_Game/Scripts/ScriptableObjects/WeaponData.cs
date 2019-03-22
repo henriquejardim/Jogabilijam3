@@ -7,4 +7,5 @@ public class WeaponData : ScriptableObject {
     public GameObject bulletPrefab;
     public float fireRate;
     public float projectileForce;
+    public bool scope = false;
 }

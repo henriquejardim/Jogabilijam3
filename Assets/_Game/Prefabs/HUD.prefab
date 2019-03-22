@@ -1855,6 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInfo: {fileID: 11400000, guid: 563b5e2224a223041a56b44e92cffffb, type: 2}
+  PlayerNumber: 0
   LifeCell:
   - {fileID: 114501695395393782}
   - {fileID: 114690963525252206}
@@ -1867,6 +1868,8 @@ MonoBehaviour:
   - {fileID: 114284742729360114}
   - {fileID: 114975889583980846}
   PlayerColor: {fileID: 114648334598548120}
+  RespawnCounterPlayer: {fileID: 0}
+  PlayerRendererColor: {fileID: 0}
 --- !u!114 &114791485424066744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1957,6 +1960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInfo: {fileID: 11400000, guid: 4edec4c2ea43c094cb3ad839e41be96c, type: 2}
+  PlayerNumber: 0
   LifeCell:
   - {fileID: 114900415321175850}
   - {fileID: 114665780794991996}
@@ -1969,6 +1973,8 @@ MonoBehaviour:
   - {fileID: 114326002431796788}
   - {fileID: 114017130598723692}
   PlayerColor: {fileID: 114296505751006974}
+  RespawnCounterPlayer: {fileID: 0}
+  PlayerRendererColor: {fileID: 0}
 --- !u!114 &114899013545639608
 MonoBehaviour:
   m_ObjectHideFlags: 1

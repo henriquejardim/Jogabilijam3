@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/_Game/_Scenes/Menu.unity
     guid: 9f1683259a8416447913036f8d609f8a
   - enabled: 1
-    path: Assets/_Game/_Scenes/Main.unity
+    path: Assets/_Game/_Scenes/Main4.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/_Game/_Scenes/Credits.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/HowToPlay.unity
     guid: c44641a0c6d802f4e8ba1a3ad6cdc84b
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Main.unity
+    guid: 40244da8d15067140955cd38e48b49b8
   m_configObjects: {}

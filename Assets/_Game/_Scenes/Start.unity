@@ -282,6 +282,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114803785198755216, guid: e57ce2f53f576604ea6a0e72014787c4,
+        type: 2}
+      propertyPath: inputs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4779762858312094, guid: e57ce2f53f576604ea6a0e72014787c4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -326,6 +331,11 @@ Prefab:
       value: 
       objectReference: {fileID: 114291197352203452, guid: 48cbc50665c73dc44893fa962b1e9451,
         type: 2}
+    - target: {fileID: 114803785198755216, guid: e57ce2f53f576604ea6a0e72014787c4,
+        type: 2}
+      propertyPath: totalControllers
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e57ce2f53f576604ea6a0e72014787c4, type: 2}
   m_IsPrefabAsset: 0
@@ -464,7 +474,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 71c17f680c57c2447a8ca44cbdb0a545, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c286c311e8bab4488fea3558a930472, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

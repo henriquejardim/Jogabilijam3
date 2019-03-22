@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afcdcafa24c8d547b08497501ed516e, type: 3}
+  m_Name: PlayerVermelho
+  m_EditorClassIdentifier: 
+  BallInactive: {fileID: 21300002, guid: 6710efce5cec4684994ebfd3a04d21fe, type: 3}
+  BallActive: {fileID: 21300000, guid: 6710efce5cec4684994ebfd3a04d21fe, type: 3}
+  PlayerHudColor: {r: 1, g: 0.0039215684, b: 0.024710407, a: 1}
+  RespawnCounterColor: {r: 0.8867924, g: 0.20496619, b: 0.38704774, a: 1}
+  ColorMaterial: {fileID: 2100000, guid: 7c85b70553adf5949af67dff14d5a6f9, type: 2}
+  HitEfectMaterial: {fileID: 2100000, guid: e42acb0ceaec583439c624d09de74992, type: 2}
