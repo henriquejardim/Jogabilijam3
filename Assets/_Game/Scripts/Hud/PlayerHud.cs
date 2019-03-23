@@ -4,8 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHud : MonoBehaviour
-{
+public class PlayerHud : MonoBehaviour {
     //[HideInInspector]
     public PlayerColorInformation PlayerInfo;
     public int PlayerNumber;
@@ -15,112 +14,83 @@ public class PlayerHud : MonoBehaviour
     public Text RespawnCounterPlayer;
     public MeshRenderer PlayerRendererColor;
 
-    int score;
-    int damageRecived;
+    public int damageRecived;
     float timeRespawn;
     bool isDeath;
     // Use this for initialization
 
-    void Start()
-    {
+    void Start() {
         var gameManager = FindObjectOfType<GameManager>();
-        if (PlayerNumber == 1)
+        switch (PlayerNumber) {
+            case 1:
             PlayerInfo = gameManager.player1Information;
-        else if (PlayerNumber == 2)
+            break;
+            case 2:
             PlayerInfo = gameManager.player2Information;
+            break;
+            case 3:
+            PlayerInfo = gameManager.player3Information;
+            break;
+            case 4:
+            PlayerInfo = gameManager.player4Information;
+            break;
+            default:
+            break;
+        }
 
-        foreach (var player in FindObjectsOfType<PlayerLife>())
-        {
-            if (player.playerNumber == PlayerNumber)
-            {
+        foreach (var player in FindObjectsOfType<PlayerLife>()) {
+            if (player.playerNumber == PlayerNumber) {
                 player.OnDamage.AddListener(Damage);
                 player.OnRespawn.AddListener(Respawn);
                 player.OnDeath.AddListener(Death);
             }
         }
 
-        foreach (var ball in FindObjectsOfType<Ball>())
-        {
-            if (ball.PlayerNumber == PlayerNumber)
-            {
-                ball.OnScore.AddListener(Score);
-                var ballrender = ball.GetComponent<MeshRenderer>();
-                ballrender.material = PlayerInfo.ColorMaterial;
-            }
-        }
-
         PlayerColor.color = PlayerInfo.PlayerHudColor;
         PlayerRendererColor.material = PlayerInfo.ColorMaterial;
         RespawnCounterPlayer.color = PlayerInfo.RespawnCounterColor;
-        for (int i = 0; i < BallSlots.Length; i++)
-        {
-            BallSlots[i].sprite = PlayerInfo.BallInactive;
-            BallSlots[i].color = PlayerInfo.PlayerHudColor;
-        }
+        ClearLifeBar();
         FullLifeBar();
     }
 
-    private void FullLifeBar()
-    {
-        for (int i = 0; i < LifeCell.Length; i++)
-        {
+    private void FullLifeBar() {
+        for (int i = 0; i < LifeCell.Length; i++) {
             LifeCell[i].fillAmount = 1;
         }
         damageRecived = 0;
     }
-    private void ClearLifeBar()
-    {
-        for (int i = 0; i < LifeCell.Length; i++)
-        {
+    private void ClearLifeBar() {
+        for (int i = 0; i < LifeCell.Length; i++) {
             LifeCell[i].fillAmount = 0;
         }
     }
 
-    private void Score(int playerNumber)
-    {
-        if (playerNumber == PlayerNumber)
-        {
-            BallSlots[score].sprite = PlayerInfo.BallActive;
-            score++;
+    private void Damage(PlayerLife player) {
+        if (player.playerNumber == PlayerNumber) {
+            LifeCell[damageRecived].fillAmount = 0;
+            damageRecived++;
         }
     }
 
-    private void Damage(PlayerLife player)
-    {
-        if (player.playerNumber == PlayerNumber)
-        {
-            for (int i = 0; i < player.TotalLife - player.CurrentLife + 1; i++) {
-                LifeCell[i].fillAmount = 0;
-            }
-            damageRecived = player.TotalLife - player.CurrentLife + 1;
-        }
-    }
-
-    private void Respawn(PlayerLife player)
-    {
-        if (player.playerNumber == PlayerNumber)
-        {
+    private void Respawn(PlayerLife player) {
+        if (player.playerNumber == PlayerNumber) {
             PlayerRendererColor.material = PlayerInfo.ColorMaterial;
             FullLifeBar();
         }
 
     }
 
-    private IEnumerator ChargeLifeBar(float timeRespawn)
-    {
+    private IEnumerator ChargeLifeBar(float timeRespawn) {
         //TEMPO PARA RECARR
         var intervalo = timeRespawn / LifeCell.Length;
-        for (int i = 0; i < LifeCell.Length; i++)
-        {
+        for (int i = 0; i < LifeCell.Length; i++) {
             yield return new WaitForSeconds(intervalo);
             LifeCell[i].fillAmount = 1;
         }
     }
 
-    void Death(PlayerLife player)
-    {
-        if (player.playerNumber == PlayerNumber)
-        {
+    void Death(PlayerLife player) {
+        if (player.playerNumber == PlayerNumber) {
             ClearLifeBar();
             StartCoroutine("ChargeLifeBar", player.TotalTimeRespawn);
         }

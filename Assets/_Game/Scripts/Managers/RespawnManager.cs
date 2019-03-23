@@ -7,9 +7,13 @@ public class RespawnManager : MonoBehaviour {
 
     public PlayerLife playerOne;
     public PlayerLife playerTwo;
+    public PlayerLife playerThree;
+    public PlayerLife playerFour;
 
     public StartTimer respawnTextPOne;
     public StartTimer respawnTextPTwo;
+    public StartTimer respawnTextPThree;
+    public StartTimer respawnTextPFour;
 
     private bool bindedEvents = false;
     private MatchManager matchManager;
@@ -36,6 +40,18 @@ public class RespawnManager : MonoBehaviour {
             respawnTextPTwo.gameObject.SetActive(true);
             respawnTextPTwo.startTime = playerLife.TotalTimeRespawn + 1;
         });
+
+        if (playerThree != null)
+            playerThree.OnDeath.AddListener((playerLife) => {
+                respawnTextPThree.gameObject.SetActive(true);
+                respawnTextPThree.startTime = playerLife.TotalTimeRespawn + 1;
+            });
+
+        if (playerFour != null)
+            playerFour.OnDeath.AddListener((playerLife) => {
+                respawnTextPFour.gameObject.SetActive(true);
+                respawnTextPFour.startTime = playerLife.TotalTimeRespawn + 1;
+            });
         bindedEvents = true;
     }
 }

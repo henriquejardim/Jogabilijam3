@@ -4,7 +4,6 @@ using XInputDotNetPure;
 public class XInputManager : InputManager {
 
 
-    bool playerIndexSet = false;
     public PlayerIndex playerIndex;
     GamePadState state;
     GamePadState prevState;

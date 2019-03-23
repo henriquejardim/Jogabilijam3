@@ -60,10 +60,6 @@ public class InputBinder : MonoBehaviour {
 
         if (inputManager == null) return;
 
-        PlayerIndex index;
-        index = 0;
-
-
         //if (GamePad.GetState(index).IsConnected && GamePad.GetState(index).Buttons.A == ButtonState.Pressed && !j1Binded) {
         //    joyTagNumber = "j1";
         //    j1Binded = true;

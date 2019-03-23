@@ -29,7 +29,9 @@ public class PlayerLife : MonoBehaviour {
     private int m_currentDamage = 1;
     private PlayerEffects playerEffects;
 
-    void Start () {
+    void Start() {
+
+
         initialPosition = transform.position;
         CurrentLife = TotalLife;
         if (OnDeath == null)
@@ -45,36 +47,35 @@ public class PlayerLife : MonoBehaviour {
         if (OnDamage == null)
             OnDamage = new PlayerEvent();
         OnDamage.AddListener(Damage);
+
     }
 
     void Damage(PlayerLife life) {
 
         CurrentLife -= m_currentDamage;
-        print("Damage " + playerNumber + " " +  CurrentLife);
+        print("Damage " + playerNumber + " " + CurrentLife);
 
         //animação e audio de dano
-        if (CurrentLife <= 0)
-        {
+        if (CurrentLife <= 0) {
             OnDeath.Invoke(this);
         }
     }
 
-    void Death(PlayerLife player)
-    {
+    void Death(PlayerLife player) {
         //animação e audio de morte
-        playerEffects.OnDeath();
+        if (playerEffects != null)
+            playerEffects.OnDeath();
         player.gameObject.SetActive(false);
         player.transform.position = initialPosition;
     }
 
-    void Respawn(PlayerLife player)
-    {
+    void Respawn(PlayerLife player) {
         //player.gameObject.SetActive(true)
         //animação e audio respawn
         player.invulnerable = true;
         CurrentLife = TotalLife;
         player.transform.position = initialPosition;
-        
+
         StartCoroutine(EndInvulnerability(player));
     }
 
@@ -86,6 +87,17 @@ public class PlayerLife : MonoBehaviour {
     public void ApplyDamage(int damage = 1) {
         m_currentDamage = damage;
         print(damage);
+        if (OnDamage == null) {
+
+            CurrentLife -= m_currentDamage;
+            print("Damage " + playerNumber + " " + CurrentLife);
+
+            //animação e audio de dano
+            if (CurrentLife <= 0) {
+                Death(this);
+            }
+            return;
+        }
         OnDamage.Invoke(this);
     }
 }

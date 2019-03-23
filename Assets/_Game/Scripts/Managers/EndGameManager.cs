@@ -22,11 +22,11 @@ public class EndGameManager : MonoBehaviour {
         if (winner == 1) {
             victoryText.color = playerOneColor;
             supportVictoryText.color = playerOneColor;
-            victoryText.text = "Encaçapador Amarelo é o vitorioso.";
+            victoryText.text = "CYBERSAMBA é equipe vtoriosa.";
         } else {
             victoryText.color = playerTwoColor;
             supportVictoryText.color = playerTwoColor;
-            victoryText.text = "Encaçapador Verde é o vitorioso.";
+            victoryText.text = "FEIJOADA LASER é a equipe vitoriosa.";
         }
     }
 

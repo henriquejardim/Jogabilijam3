@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 
     public PlayerColorInformation player1Information;
     public PlayerColorInformation player2Information;
+    public PlayerColorInformation player3Information;
+    public PlayerColorInformation player4Information;
 
     public enum GameState {
         Start,
@@ -39,8 +41,12 @@ public class GameManager : MonoBehaviour {
         if (state == GameState.Gaming) {
             player1.BindInputManager(binder.inputs[0]);
             player2.BindInputManager(binder.inputs[1]);
-            player3.BindInputManager(binder.inputs[2]);
-            player4.BindInputManager(binder.inputs[3]);
+
+            if (binder.inputs[2] != null && player3 != null)
+                player3.BindInputManager(binder.inputs[2]);
+
+            if (binder.inputs[3] != null && player4 != null)
+                player4.BindInputManager(binder.inputs[3]);
         }
 
     }
@@ -54,24 +60,37 @@ public class GameManager : MonoBehaviour {
     }
 
     internal void Play() {
-        SceneManager.LoadScene("Main");
+        if (!ControllersBinded()) return;
+        if (Data.selectedMode == 1)
+            SceneManager.LoadScene("Main");
+        else
+            SceneManager.LoadScene("MainX2");
         ChangeState(GameState.Gaming);
     }
 
     internal void HowToPlay() {
+        if (!ControllersBinded()) return;
         SceneManager.LoadScene(4);
         ChangeState(GameState.Gaming);
+    }
+
+    internal void JoystickBind() {
+        SceneManager.LoadScene("Bind");
+        ChangeState(GameState.JoystickBind);
     }
 
     // Update is called once per frame
     void Update() {
         switch (state) {
             case GameState.Start:
-            binder.Bind();
+            if (Input.GetButtonDown("Submit") || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Cancel"))
+                MenuScreen();
+            //binder.Bind();
             break;
             case GameState.Menu:
             break;
             case GameState.JoystickBind:
+            binder.Bind();
             break;
             case GameState.Gaming:
             binder.Bind();
@@ -92,17 +111,17 @@ public class GameManager : MonoBehaviour {
     }
 
     internal void MenuScreen() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Menu2");
         ChangeState(GameState.Menu);
     }
 
     public void OnBind() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Menu2");
         ChangeState(GameState.Menu);
     }
 
     public bool ControllersBinded() {
-        return binder.inputs.All(i => i.binded) || binder.inputs.Count(i => i.binded) >= 2;
+        return binder.inputs.All(i => i.binded) && Data.selectedMode == 2 || binder.inputs.Count(i => i.binded) >= 2 && Data.selectedMode == 1;
     }
 
     public void ChangeState(GameState newState) {

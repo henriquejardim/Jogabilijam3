@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallInactive: {fileID: 21300002, guid: 6710efce5cec4684994ebfd3a04d21fe, type: 3}
   BallActive: {fileID: 21300000, guid: 6710efce5cec4684994ebfd3a04d21fe, type: 3}
-  PlayerHudColor: {r: 0.8867924, g: 0.49557477, b: 0.020914912, a: 1}
+  PlayerHudColor: {r: 1, g: 0.7843138, b: 0.003921569, a: 1}
   RespawnCounterColor: {r: 0.9339623, g: 0.63882536, b: 0.048460312, a: 1}
   ColorMaterial: {fileID: 2100000, guid: 6bb3783dc151bd44f954e9da315b4cc6, type: 2}
   HitEfectMaterial: {fileID: 2100000, guid: 4af6ab0438b9fc745a3f4871beea2cf7, type: 2}
