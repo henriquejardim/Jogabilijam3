@@ -80,4 +80,9 @@ public class XInputManager : InputManager {
         binded = true;
     }
 
+    public override void Unbind() {
+        PlayerTagNumber =  null;
+        binded = false;
+    }
+
 }

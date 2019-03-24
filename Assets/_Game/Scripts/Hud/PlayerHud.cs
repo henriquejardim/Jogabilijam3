@@ -16,9 +16,10 @@ public class PlayerHud : MonoBehaviour {
 
     public int damageRecived;
     float timeRespawn;
-    bool isDeath;
     // Use this for initialization
 
+    public PlayerLife player;
+ 
     void Start() {
         var gameManager = FindObjectOfType<GameManager>();
         switch (PlayerNumber) {
@@ -38,17 +39,15 @@ public class PlayerHud : MonoBehaviour {
             break;
         }
 
-        foreach (var player in FindObjectsOfType<PlayerLife>()) {
-            if (player.playerNumber == PlayerNumber) {
-                player.OnDamage.AddListener(Damage);
-                player.OnRespawn.AddListener(Respawn);
-                player.OnDeath.AddListener(Death);
-            }
-        }
+        print("HUD BIND:" + PlayerNumber);
+        player.OnDamage.AddListener(Damage);
+        player.OnRespawn.AddListener(Respawn);
+        player.OnDeath.AddListener(Death);
 
         PlayerColor.color = PlayerInfo.PlayerHudColor;
         PlayerRendererColor.material = PlayerInfo.ColorMaterial;
         RespawnCounterPlayer.color = PlayerInfo.RespawnCounterColor;
+
         ClearLifeBar();
         FullLifeBar();
     }
@@ -63,10 +62,12 @@ public class PlayerHud : MonoBehaviour {
         for (int i = 0; i < LifeCell.Length; i++) {
             LifeCell[i].fillAmount = 0;
         }
+        damageRecived = 0;
     }
 
     private void Damage(PlayerLife player) {
         if (player.playerNumber == PlayerNumber) {
+            print("Hud " + PlayerNumber + " " + damageRecived); 
             LifeCell[damageRecived].fillAmount = 0;
             damageRecived++;
         }
@@ -89,8 +90,9 @@ public class PlayerHud : MonoBehaviour {
         }
     }
 
-    void Death(PlayerLife player) {
+    public void Death(PlayerLife player) {
         if (player.playerNumber == PlayerNumber) {
+            print("Hud Death " + PlayerNumber + " " + damageRecived);
             ClearLifeBar();
             StartCoroutine("ChargeLifeBar", player.TotalTimeRespawn);
         }

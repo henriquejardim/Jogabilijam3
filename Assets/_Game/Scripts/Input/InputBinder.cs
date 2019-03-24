@@ -10,6 +10,7 @@ public class InputBinder : MonoBehaviour {
     public XInputManager xinputManagerPrefab;
 
     public InputManager[] inputs;
+    public InputManager[] inputsCache;
 
     [Range(1, 4)]
     public int totalControllers = 2;
@@ -17,7 +18,7 @@ public class InputBinder : MonoBehaviour {
 
     private string joyTagNumber;
 
-    private int i = 0;
+    public int i = 0;
 
     private bool keyboardAndMouseBinded = false;
     private bool j1Binded = false;
@@ -47,6 +48,7 @@ public class InputBinder : MonoBehaviour {
             DontDestroyOnLoad(manager);
 
             inputs[index] = manager;
+            inputsCache[index] = manager;
 
         }
         DontDestroyOnLoad(gameObject);
@@ -129,6 +131,18 @@ public class InputBinder : MonoBehaviour {
             if (OnBind != null)
                 OnBind.Invoke();
         }
+    }
+
+    public void ResetBind() {
+        for (int idx = 0; idx < inputs.Length; idx++) {
+            inputs[idx].Unbind();
+            inputsCache[idx].Unbind();
+        }
+        for (int idx = 0; idx < inputs.Length; idx++) {
+            inputs[idx] = inputsCache[idx];
+        }
+        i = 0;
+        j1Binded = j2Binded = j3Binded = j4Binded = keyboardAndMouseBinded = false;
     }
 
 

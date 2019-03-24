@@ -74,4 +74,9 @@ public class InputManager : MonoBehaviour {
         binded = true;
     }
 
+    public virtual void Unbind() {
+        PlayerTagNumber = string.Empty;
+        binded = false;
+    }
+
 }

@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
     }
 
     internal void Credits() {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Credits");
     }
 
     internal void Play() {
@@ -70,11 +70,12 @@ public class GameManager : MonoBehaviour {
 
     internal void HowToPlay() {
         if (!ControllersBinded()) return;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("HowToPlay");
         ChangeState(GameState.Gaming);
     }
 
     internal void JoystickBind() {
+        binder.ResetBind();
         SceneManager.LoadScene("Bind");
         ChangeState(GameState.JoystickBind);
     }

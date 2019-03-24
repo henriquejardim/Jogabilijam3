@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 11886805}
   - component: {fileID: 11886808}
   - component: {fileID: 11886807}
-  - component: {fileID: 11886806}
   - component: {fileID: 11886809}
   m_Layer: 5
   m_Name: ScoreBoardPlayer1
@@ -158,35 +157,6 @@ RectTransform:
   m_AnchoredPosition: {x: 590, y: -240}
   m_SizeDelta: {x: 330, y: 216}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &11886806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114885431513748592, guid: c74a239b1f24ff64e8cb4f6e15e4389a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 11886804}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a297066909f8d4cba78fc993fd131e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerInfo: {fileID: 11400000, guid: 608b5ededdd669e488c2b3a55651a70f, type: 2}
-  PlayerNumber: 1
-  LifeCell:
-  - {fileID: 1510078895}
-  - {fileID: 1645548568}
-  - {fileID: 1598293702}
-  - {fileID: 918507307}
-  - {fileID: 841025388}
-  BallSlots:
-  - {fileID: 252980310}
-  - {fileID: 1597591496}
-  - {fileID: 1390466411}
-  - {fileID: 555739410}
-  PlayerColor: {fileID: 486141487}
-  RespawnCounterPlayer: {fileID: 1816336194}
-  PlayerRendererColor: {fileID: 2069035754}
-  damageRecived: 0
 --- !u!114 &11886807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,7 +331,7 @@ Transform:
   - {fileID: 1479840636}
   - {fileID: 1281323362}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &123150876 stripped
 GameObject:
@@ -665,6 +635,7 @@ MonoBehaviour:
   RespawnCounterPlayer: {fileID: 1374723430}
   PlayerRendererColor: {fileID: 1180508264}
   damageRecived: 0
+  player: {fileID: 0}
 --- !u!1 &157549166
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &172585502
 GameObject:
@@ -1118,6 +1089,7 @@ MonoBehaviour:
   RespawnCounterPlayer: {fileID: 1374723430}
   PlayerRendererColor: {fileID: 1180508264}
   damageRecived: 0
+  player: {fileID: 0}
 --- !u!114 &178992404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8649,7 +8621,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Enca\xE7apador amarelo \xE9 o vitorioso"
+  m_Text: "CYBERSAMBA faz jus ao seu nome e d\xE1 um baile. "
 --- !u!222 &393517560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8730,7 +8702,7 @@ Transform:
   - {fileID: 687094336}
   - {fileID: 1789762648}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444590799
 GameObject:
@@ -9808,7 +9780,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 58.805004, y: 90.00001, z: 0}
 --- !u!114 &534669906
 MonoBehaviour:
@@ -10139,7 +10111,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &621591022
 GameObject:
@@ -10296,7 +10268,7 @@ Transform:
   - {fileID: 1385116592}
   - {fileID: 1357648196}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &676029286
 Prefab:
@@ -12539,7 +12511,7 @@ Transform:
   - {fileID: 919940745}
   - {fileID: 157549168}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896025873
 GameObject:
@@ -13323,7 +13295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.97573745, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13343,7 +13315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Nova Brasilis aclama seu novo campe\xE3o."
+  m_Text: "Nova Bazilis celebra sua vit\xF3ria!"
 --- !u!222 &981595424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20704,6 +20676,7 @@ MonoBehaviour:
   RespawnCounterPlayer: {fileID: 1816336194}
   PlayerRendererColor: {fileID: 2069035754}
   damageRecived: 0
+  player: {fileID: 278816310}
 --- !u!114 &1087049317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114932844882882792, guid: 58c7dc3ea0c246e4e84ad6c45c447725,
@@ -20869,7 +20842,7 @@ Transform:
   - {fileID: 1837845724}
   - {fileID: 540992900}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154319614
 GameObject:
@@ -20942,6 +20915,7 @@ MonoBehaviour:
   RespawnCounterPlayer: {fileID: 1374723430}
   PlayerRendererColor: {fileID: 1180508264}
   damageRecived: 0
+  player: {fileID: 853568213}
 --- !u!1 &1157560030
 GameObject:
   m_ObjectHideFlags: 0
@@ -21067,7 +21041,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4372371534136876, guid: 805132ce36d08cb4282d7e8edd4a165a, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114968356388515374, guid: 805132ce36d08cb4282d7e8edd4a165a,
         type: 2}
@@ -22593,6 +22567,7 @@ MonoBehaviour:
   RespawnCounterPlayer: {fileID: 1816336194}
   PlayerRendererColor: {fileID: 2069035754}
   damageRecived: 0
+  player: {fileID: 0}
 --- !u!1 &1431778920
 GameObject:
   m_ObjectHideFlags: 0
@@ -24110,7 +24085,6 @@ GameObject:
   - component: {fileID: 1671254867}
   - component: {fileID: 1671254870}
   - component: {fileID: 1671254869}
-  - component: {fileID: 1671254868}
   - component: {fileID: 1671254871}
   m_Layer: 5
   m_Name: ScoreBoardPlayer2-n
@@ -24143,35 +24117,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1335, y: -240}
   m_SizeDelta: {x: 330, y: 216}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1671254868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114885431513748592, guid: c74a239b1f24ff64e8cb4f6e15e4389a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1671254866}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a297066909f8d4cba78fc993fd131e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerInfo: {fileID: 11400000, guid: 212245063379b614eb7123804ed122ad, type: 2}
-  PlayerNumber: 2
-  LifeCell:
-  - {fileID: 494358543}
-  - {fileID: 2124439961}
-  - {fileID: 232100896}
-  - {fileID: 136639020}
-  - {fileID: 1467497986}
-  BallSlots:
-  - {fileID: 1074589766}
-  - {fileID: 838740975}
-  - {fileID: 224803374}
-  - {fileID: 1094207219}
-  PlayerColor: {fileID: 1627916361}
-  RespawnCounterPlayer: {fileID: 1816336194}
-  PlayerRendererColor: {fileID: 2069035754}
-  damageRecived: 0
 --- !u!114 &1671254869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24392,7 +24337,7 @@ RectTransform:
   - {fileID: 178992402}
   - {fileID: 1671254867}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -25004,7 +24949,7 @@ Transform:
   m_LocalScale: {x: 20, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1719187772
 MonoBehaviour:
@@ -25671,7 +25616,7 @@ RectTransform:
   - {fileID: 1651865723}
   - {fileID: 800443679}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -25692,8 +25637,8 @@ MonoBehaviour:
   gameManager: {fileID: 1704154362}
   victoryText: {fileID: 393517559}
   supportVictoryText: {fileID: 981595423}
-  playerOneColor: {r: 1, g: 0.91719204, b: 0.0047169924, a: 1}
-  playerTwoColor: {r: 0.30146042, g: 0.9433962, b: 0.22694907, a: 1}
+  playerOneColor: {r: 0.0039215684, g: 1, b: 0.9065882, a: 1}
+  playerTwoColor: {r: 0.94509804, g: 0.7631388, b: 0.22745097, a: 1}
   endGamePanel: {fileID: 1651865722}
   endGameScorePanel: {fileID: 800443678}
 --- !u!1 &1855190816
@@ -26491,7 +26436,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4244109485321126, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1131249161187780, guid: 05347f535fb367342b1e01af77010ff3, type: 2}
       propertyPath: m_Name
@@ -26940,7 +26885,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4067614219256968, guid: a90964fd7f4f81a45bf77e0541683f16, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 65139915513654280, guid: a90964fd7f4f81a45bf77e0541683f16,
         type: 2}

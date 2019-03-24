@@ -47,6 +47,15 @@ public class MatchManager : MonoBehaviour {
         AudioManager.instance.PlayAudioClip(matchClip);
     }
 
+    IEnumerator StartPlay() {
+        yield return new WaitForSeconds(1.1f);
+        foreach (PlayerLife player in FindObjectsOfType<PlayerLife>()) {
+            print(player.playerNumber);
+            player.OnDeath.AddListener(DeathPlayer);
+            player.ApplyDamage(player.TotalLife);
+        }
+    }
+
     private void Score(int numberPlayer) {
         if (numberPlayer == 1)
             BallPocketedPlayer1++;

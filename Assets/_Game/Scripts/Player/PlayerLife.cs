@@ -87,17 +87,7 @@ public class PlayerLife : MonoBehaviour {
     public void ApplyDamage(int damage = 1) {
         m_currentDamage = damage;
         print(damage);
-        if (OnDamage == null) {
-
-            CurrentLife -= m_currentDamage;
-            print("Damage " + playerNumber + " " + CurrentLife);
-
-            //animação e audio de dano
-            if (CurrentLife <= 0) {
-                Death(this);
-            }
-            return;
-        }
+        
         OnDamage.Invoke(this);
     }
 }

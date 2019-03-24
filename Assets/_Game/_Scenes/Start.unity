@@ -287,6 +287,11 @@ Prefab:
       propertyPath: inputs.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114803785198755216, guid: e57ce2f53f576604ea6a0e72014787c4,
+        type: 2}
+      propertyPath: inputsCache.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4779762858312094, guid: e57ce2f53f576604ea6a0e72014787c4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -335,6 +340,11 @@ Prefab:
         type: 2}
       propertyPath: totalControllers
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803785198755216, guid: e57ce2f53f576604ea6a0e72014787c4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e57ce2f53f576604ea6a0e72014787c4, type: 2}
